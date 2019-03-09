@@ -1,5 +1,6 @@
 const express = require('express')
 const server = express()
+const cors = require('cors')
 
 const projectsDb = require('../data/helpers/projectModel')
 const actionsDb = require('../data/helpers/actionModel')
@@ -7,7 +8,7 @@ const actionsDb = require('../data/helpers/actionModel')
 const parser = express.json()
 
 //server.use(json.express())
-server.use(parser)
+server.use(parser, cors )
 
 server.get('/', (req, res) => {
   res.json('alive');
